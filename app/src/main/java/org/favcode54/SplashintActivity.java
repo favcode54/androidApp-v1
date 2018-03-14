@@ -9,12 +9,12 @@ import android.widget.Button;
 /**
  * Created by Zfinix on 3/12/18.
  */
-public class RecoverActivity extends Activity {
+public class SplashintActivity extends Activity {
     Button recover, back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recover);
+        setContentView(R.layout.activity_splashint);
         back = (Button) findViewById(R.id.back);
         recover = (Button) findViewById(R.id.recover);
 

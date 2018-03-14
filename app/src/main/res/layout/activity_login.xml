@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/bg">
@@ -176,8 +175,8 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@drawable/button"
                 android:elevation="8dp"/>
 
@@ -185,10 +184,13 @@
 
     </android.support.v7.widget.CardView>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@+id/cardView"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal">
 
         <Button
@@ -198,14 +200,14 @@
             android:layout_alignEnd="@+id/signin"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/signin"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:background="@null"
             android:text="Create an Account"
             android:textAllCaps="false"
-            android:textSize="12sp"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            android:visibility="visible"/>
 
         <Button
             android:id="@+id/recover"
@@ -215,11 +217,14 @@
             android:layout_alignBottom="@+id/create"
             android:layout_alignLeft="@+id/signin"
             android:layout_alignStart="@+id/signin"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@null"
             android:text="Recover Password"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:visibility="visible"/>
     </LinearLayout>
 
 </RelativeLayout>
