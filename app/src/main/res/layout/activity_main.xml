@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.unnmobile2.social.views.CircularImageView
+        android:id="@+id/authorImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="6dp"
+        app:border="false"
+        app:shadow="true"
+        app:shadow_color="@color/colorPrimary"
+        app:shadow_radius="5dp"/>
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/GridLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:columnCount="2"
+                android:orientation="horizontal"
+                android:rowCount="3"
+                tools:context=".GridXMLActivity"
+                tools:ignore="DuplicateIds">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/lesson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            app:cardCornerRadius="5dp"
+            card_view:cardCornerRadius="9dp"
+            card_view:cardElevation="7dp"
+            card_view:cardUseCompatPadding="true"
+            tools:ignore="DuplicateIds,ObsoleteLayoutParam">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:soundEffectsEnabled="false">
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_column="1"
+            app:cardCornerRadius="5dp"
+            card_view:cardCornerRadius="9dp"
+            card_view:cardElevation="7dp"
+            card_view:cardUseCompatPadding="true"
+            tools:ignore="DuplicateIds,RtlCompat">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:soundEffectsEnabled="false">
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+          android:layout_column="0"
+            app:cardCornerRadius="5dp"
+            card_view:cardCornerRadius="9dp"
+            card_view:cardElevation="7dp"
+            card_view:cardUseCompatPadding="true"
+            tools:ignore="DuplicateIds">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:soundEffectsEnabled="false">
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_column="1"
+            app:cardCornerRadius="5dp"
+            card_view:cardCornerRadius="9dp"
+            card_view:cardElevation="7dp"
+            card_view:cardUseCompatPadding="true">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:soundEffectsEnabled="false">
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_column="0"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="7dp"
+            app:cardUseCompatPadding="true">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:soundEffectsEnabled="false">
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_column="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="7dp"
+            app:cardUseCompatPadding="true">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:soundEffectsEnabled="false">
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </GridLayout>
+
+</RelativeLayout>
