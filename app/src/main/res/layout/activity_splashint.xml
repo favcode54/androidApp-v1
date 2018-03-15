@@ -20,7 +20,7 @@
         tools:layout_editor_absoluteY="314dp"/>
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
@@ -28,24 +28,24 @@
         android:layout_marginTop="57dp"
         app:srcCompat="@drawable/icon2"/>
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <Button
+        android:id="@+id/signin"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/imageButton2"
+        android:layout_below="@+id/signup"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="27dp"
         android:background="@drawable/button4"
         android:elevation="5dp"/>
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+    <Button
+        android:id="@+id/signup"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton"
+        android:layout_alignLeft="@+id/signin"
+        android:layout_alignStart="@+id/signin"
         android:layout_alignTop="@+id/imageView6"
-        android:layout_marginTop="82dp"
+        android:layout_marginTop="84dp"
         android:background="@drawable/button2"
         android:elevation="5dp"/>
 </RelativeLayout>

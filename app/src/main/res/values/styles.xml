@@ -15,5 +15,9 @@
         <item name="android:textColorPrimary">@color/text_color</item>
     </style>
 
+    <style name="Home" parent="Theme.AppCompat.Light">
+        <item name="android:colorBackground">@color/bg</item>
+    </style>
+
 
 </resources>

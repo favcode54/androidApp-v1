@@ -10,16 +10,17 @@ import android.widget.Button;
  * Created by Zfinix on 3/12/18.
  */
 public class SplashintActivity extends Activity {
-    Button recover, back;
+    Button signin, signup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashint);
-        back = (Button) findViewById(R.id.back);
-        recover = (Button) findViewById(R.id.recover);
+        signin = (Button) findViewById(R.id.signin);
+        signup = (Button) findViewById(R.id.signup);
 
 
-        back.setOnClickListener(new View.OnClickListener() {
+        signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cal = new Intent(getApplicationContext(), SignupActivity.class);
@@ -27,7 +28,7 @@ public class SplashintActivity extends Activity {
             }
         });
 
-        recover.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cal = new Intent(getApplicationContext(), SignupActivity.class);
@@ -38,6 +39,4 @@ public class SplashintActivity extends Activity {
 
     }
 
-    private void SignIn() {
-    }
 }
