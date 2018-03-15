@@ -9,20 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
-                  android:theme="@style/Theme.Splash">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-                  android:theme="@style/white"/>
-        <activity android:name=".RecoverActivity"
-                  android:theme="@style/white"/>
-        <activity android:name=".SignupActivity"
-                  android:theme="@style/white"/>
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/white"/>
+        <activity
+            android:name=".RecoverActivity"
+            android:theme="@style/white"/>
+        <activity
+            android:name=".SignupActivity"
+            android:theme="@style/white"/>
     </application>
 
 </manifest>
