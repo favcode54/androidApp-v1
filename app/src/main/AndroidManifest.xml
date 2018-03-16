@@ -9,33 +9,40 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"
-                  android:theme="@style/Theme.Splash"
-                  android:noHistory="true">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.Splash"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-                  android:theme="@style/white"/>
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/white"/>
 
-        <activity android:name=".RecoverActivity"
-                  android:theme="@style/white"/>
+        <activity
+            android:name=".RecoverActivity"
+            android:theme="@style/white"/>
 
-        <activity android:name=".MainActivity"
-                  android:theme="@style/Home"/>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Home"/>
 
-        <activity android:name=".SplashintActivity"
-                  android:noHistory="true"
-                  android:theme="@style/white"/>
+        <activity
+            android:name=".SplashintActivity"
+            android:noHistory="true"
+            android:theme="@style/white"/>
 
-        <activity android:name=".MenuActivity"
-                  android:theme="@style/white"/>
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/white"/>
 
-        <activity android:name=".SignupActivity"
-                  android:theme="@style/white"/>
+        <activity
+            android:name=".SignupActivity"
+            android:theme="@style/white"/>
     </application>
 
 </manifest>

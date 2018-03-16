@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 public class MenuActivity extends Activity {
     Button recover, create;
     ImageButton signin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class MenuActivity extends Activity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               SignIn();
+                SignIn();
             }
         });
 
