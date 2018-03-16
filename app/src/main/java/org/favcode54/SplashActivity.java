@@ -46,6 +46,7 @@ public class SplashActivity extends Activity {
                 try {
                     sleep(8000);
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
                     finish();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

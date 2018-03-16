@@ -11,7 +11,12 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
+
+            android:theme="@style/Theme.Splash"
+            android:noHistory="true">
+
             android:theme="@style/Theme.Splash">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,9 +26,29 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/white"/>
+
+
         <activity
             android:name=".RecoverActivity"
             android:theme="@style/white"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Home"/>
+
+        <activity
+            android:name=".SplashintActivity"
+            android:noHistory="true"
+            android:theme="@style/white"/>
+
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/white"/>
+      
+        <activity
+            android:name=".RecoverActivity"
+            android:theme="@style/white"/>
+
         <activity
             android:name=".SignupActivity"
             android:theme="@style/white"/>
