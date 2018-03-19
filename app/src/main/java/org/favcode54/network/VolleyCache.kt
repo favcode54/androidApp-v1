@@ -1,4 +1,4 @@
-package org.favcode54.favcode54.network
+package com.jadebyte.naijaloaded.network
 
 import com.android.volley.Cache
 import com.android.volley.NetworkResponse

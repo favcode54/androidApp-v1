@@ -1,4 +1,5 @@
-package org.favcode54.favcode54.network
+package com.jadebyte.naijaloaded.network
+
 import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue

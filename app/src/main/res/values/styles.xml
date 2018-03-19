@@ -19,5 +19,23 @@
         <item name="android:colorBackground">@color/bg</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="LightHighlightColorTheme">
+        <item name="colorControlHighlight">@color/light_ripple_color</item>
+    </style>
+
+    <style name="LighterHighlightColorTheme">
+        <item name="colorControlHighlight">@color/lighter_ripple_color</item>
+    </style>
+
 
 </resources>

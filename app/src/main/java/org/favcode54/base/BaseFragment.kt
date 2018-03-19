@@ -3,15 +3,14 @@ package org.favcode54.favcode54.base
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import org.favcode54.favcode54.R
-import org.favcode54.favcode54.base.App
+import org.favcode54.App
+import org.favcode54.R
 
 
 /**

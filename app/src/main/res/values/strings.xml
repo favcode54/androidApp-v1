@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">Code WIth Favour</string>
+
+    <!--Fonts-->
+    <string name="customFont">fonts/OpenSans-Regular.ttf</string>
+    <string name="customFontBold">fonts/OpenSans-Bold.ttf</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="learn">Learn</string>
+    <string name="get_jobs">Get Jobs</string>
+    <string name="score_sheet">Score Sheet</string>
+    <string name="projects">Projects</string>
+    <string name="home">Home</string>
+    <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="our_team">Our Team</string>
+
+    <!--Volley-->
+    <string name="connect_time_o">Connection timed out</string>
+    <string name="no_connect_err">No internet connection found. \nCheck your connection and try again</string>
+    <string name="auth_error">Authentication failure</string>
+    <string name="server_error">Server failure</string>
+    <string name="network_error">Network failure. \nCheck your connection and try again</string>
+    <string name="parse_error">Parsing failure</string>
+    <string name="sth_wrong_try_again">Oops! Something went wrong. \nPlease try again</string>
 </resources>

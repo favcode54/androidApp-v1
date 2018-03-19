@@ -2,11 +2,13 @@ package org.favcode54
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Bundle
+import android.graphics.PorterDuff
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 
 /**
@@ -15,10 +17,6 @@ import android.widget.TextView
 @SuppressLint("Registered")
 open class BaseActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        // LocalBroadcastManager.getInstance(this).registerReceiver(themeChangeReceiver, IntentFilter(Constants.Keys.THEME_CHANGE))
-    }
 
     fun applyFont(viewGroup: ViewGroup) {
         for (i in 0 until viewGroup.childCount) {
@@ -56,18 +54,8 @@ open class BaseActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 
-    fun setDialogFonts(alertDialog: AlertDialog) {
-        // Getting the view elements
-        val textView = alertDialog.window.findViewById(android.R.id.message) as TextView
-        val alertTitle = alertDialog.window.findViewById(R.id.alertTitle) as TextView
-        val button1 = alertDialog.window.findViewById(android.R.id.button1) as Button
-        val button2 = alertDialog.window.findViewById(android.R.id.button2) as Button
-
-        // Setting font
-        textView.typeface = App.customFont
-        alertTitle.typeface = App.customFontBold
-        button1.typeface = App.customFont
-        button2.typeface = App.customFont
+    fun tintProgressBar(progressBar: ProgressBar) {
+        progressBar.indeterminateDrawable.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimaryDark), PorterDuff.Mode.SRC_IN)
     }
 
 

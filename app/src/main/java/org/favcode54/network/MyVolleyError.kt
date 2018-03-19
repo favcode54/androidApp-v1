@@ -1,8 +1,8 @@
-package org.favcode54.favcode54.network
+package org.favcode54.network
 
 import android.content.Context
 import com.android.volley.*
-import org.favcode54.favcode54.R
+import  org.favcode54.R
 import java.lang.ref.WeakReference
 
 /**
