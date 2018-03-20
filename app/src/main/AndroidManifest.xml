@@ -42,7 +42,7 @@
             android:name=".SignupActivity"
             android:theme="@style/white"/>
         <activity
-            android:name=".views.BareWebActivity"
+            android:name=".BareWebActivity"
             android:parentActivityName=".MenuActivity"
             android:theme="@style/AppTheme">
             <meta-data
