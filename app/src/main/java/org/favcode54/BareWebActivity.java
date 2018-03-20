@@ -14,10 +14,10 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.jadebyte.naijaloaded.network.VolleyCache;
 
 import org.favcode54.R.id;
 import org.favcode54.network.MyVolleyError;
+import org.favcode54.network.VolleyCache;
 import org.favcode54.network.VolleySingleton;
 import org.jetbrains.annotations.NotNull;
 
@@ -78,7 +78,7 @@ public final class BareWebActivity extends BaseActivity {
             protected Response<String> parseNetworkResponse(NetworkResponse response) {
                 Response<String> resp = super.parseNetworkResponse(response);
 
-                return Response.success(resp.result, VolleyCache.INSTANCE.parseIgnoreCacheHeaders(response, TimeUnit.DAYS.toMillis(30L)));
+                return Response.success(resp.result, VolleyCache.parseIgnoreCacheHeaders(response, TimeUnit.DAYS.toMillis(30L)));
             }
         };
         request.setShouldCache(true);
