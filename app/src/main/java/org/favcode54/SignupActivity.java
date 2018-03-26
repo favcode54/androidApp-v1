@@ -1,6 +1,5 @@
 package org.favcode54;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -8,7 +7,7 @@ import android.widget.ImageButton;
 /**
  * Created by Zfinix on 3/12/18.
  */
-public class SignupActivity extends Activity {
+public class SignupActivity extends BaseActivity {
     ImageButton signup, withgoogle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

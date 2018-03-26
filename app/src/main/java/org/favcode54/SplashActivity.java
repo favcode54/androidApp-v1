@@ -1,6 +1,5 @@
 package org.favcode54;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -10,13 +9,12 @@ import android.view.WindowManager;
 
 import com.wang.avi.AVLoadingIndicatorView;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
 
         // making notification bar transparent
@@ -45,7 +43,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 try {
                     sleep(8000);
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), SplashintActivity.class));
 
                     finish();
                 } catch (InterruptedException e) {

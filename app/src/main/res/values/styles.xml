@@ -9,6 +9,15 @@
         <item name="android:colorForeground">@color/foreground_material_light</item>
         <item name="android:textColorPrimary">@color/cardview_dark_background</item>
         <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+
+    </style>
+
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
     </style>
 
     <style name="white" parent="AppTheme">
@@ -17,6 +26,25 @@
 
     <style name="Home" parent="Theme.AppCompat.Light">
         <item name="android:colorBackground">@color/bg</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="LightHighlightColorTheme">
+        <item name="colorControlHighlight">@color/light_ripple_color</item>
+    </style>
+
+    <style name="LighterHighlightColorTheme">
+        <item name="colorControlHighlight">@color/lighter_ripple_color</item>
     </style>
 
 
