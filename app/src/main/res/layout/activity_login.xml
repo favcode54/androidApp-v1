@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:id="@+id/rootViewx"
                 android:layout_height="match_parent"
@@ -15,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:background="#FFFFFF"
-        android:elevation="7dp">
+        android:elevation="7dp"
+        tools:targetApi="lollipop">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -24,7 +26,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:src="@drawable/signin"/>
+            android:src="@drawable/signin"
+            android:contentDescription="TODO"/>
     </RelativeLayout>
 
     <android.support.v7.widget.CardView
@@ -64,7 +67,8 @@
                     android:layout_marginTop="30dp"
                     android:text="Username"
                     android:textColor="#b1b1b1"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -87,7 +91,8 @@
                         android:ems="10"
                         android:hint="Favor"
                         android:textColorHint="@color/text_color"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText"/>
 
                     <ImageView
                         android:id="@+id/imageView10"
@@ -99,7 +104,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_alignRight="@+id/username"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/icon_person"/>
+                        android:src="@drawable/icon_person"
+                        android:contentDescription="TODO"/>
 
 
                     <FrameLayout
@@ -125,7 +131,8 @@
                     android:layout_marginTop="30dp"
                     android:text="Password"
                     android:textColor="#b1b1b1"
-                    android:textSize="13sp"/>
+                    android:textSize="13sp"
+                    tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -146,7 +153,8 @@
                         android:hint="......"
                         android:inputType="textPassword"
                         android:textColorHint="@color/text_color"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        tools:ignore="HardcodedText"/>
 
                     <FrameLayout
                         android:id="@+id/frameLayout"
@@ -167,7 +175,8 @@
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
                         android:rotation="90"
-                        android:src="@drawable/icon_key"/>
+                        android:src="@drawable/icon_key"
+                        android:contentDescription="TODO"/>
                 </RelativeLayout>
 
             </LinearLayout>
@@ -179,7 +188,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button"
-                android:elevation="8dp"/>
+                android:elevation="8dp"
+                android:contentDescription="TODO"
+                tools:targetApi="lollipop"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -206,7 +217,8 @@
             android:text="Create an Account"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
 
         <Button
             android:id="@+id/recover"
@@ -222,7 +234,8 @@
             android:text="Recover Password"
             android:textColor="@color/colorPrimary"
             android:textSize="12sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
 
     </LinearLayout>
 

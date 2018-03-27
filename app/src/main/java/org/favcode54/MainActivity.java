@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+@SuppressWarnings("ALL")
 public class MainActivity extends BaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class MainActivity extends BaseActivity {
             activity.setTitle("Favcode");
         }**/
         this.setSupportActionBar(findViewById(R.id.toolbar));
+        //noinspection ConstantConditions
         getSupportActionBar().setTitle(getIntent().getStringExtra(""));
 
 

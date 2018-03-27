@@ -35,7 +35,8 @@
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
                     android:background="?attr/selectableItemBackground"
-                    android:src="@drawable/ic_menu"/>
+                    android:src="@drawable/ic_menu"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView10"
@@ -51,7 +52,8 @@
                     android:text="Favcode"
                     android:textAlignment="center"
                     android:textColor="@color/text_color"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText"/>
 
             </RelativeLayout>
 

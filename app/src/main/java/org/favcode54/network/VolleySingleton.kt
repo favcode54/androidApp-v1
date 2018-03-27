@@ -12,7 +12,7 @@ class VolleySingleton (private val sContext: Context) {
 
     // getApplicationContext() is key, it keeps you from leaking the
     // Activity or BroadcastReceiver if someone passes one in.
-    val requestQueue: RequestQueue?
+    private val requestQueue: RequestQueue?
         get() {
             if (mRequestQueue == null) {
                 mRequestQueue = Volley.newRequestQueue(sContext.applicationContext)

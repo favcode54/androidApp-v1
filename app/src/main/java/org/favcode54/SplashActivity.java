@@ -55,7 +55,7 @@ public class SplashActivity extends BaseActivity {
         startAnim();
     }
 
-    void startAnim() {
+    private void startAnim() {
         avi.show();
         // or avi.smoothToShow();
     }

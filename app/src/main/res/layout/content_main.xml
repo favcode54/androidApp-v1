@@ -112,7 +112,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_marginStart="11dp"
                     android:layout_marginTop="21dp"
-                    app:srcCompat="@drawable/ic_learn"/>
+                    app:srcCompat="@drawable/ic_learn"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -165,7 +166,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_marginStart="11dp"
                     android:layout_marginTop="21dp"
-                    app:srcCompat="@drawable/ic_sheet"/>
+                    app:srcCompat="@drawable/ic_sheet"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -218,7 +220,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_marginStart="11dp"
                     android:layout_marginTop="21dp"
-                    app:srcCompat="@drawable/ic_project"/>
+                    app:srcCompat="@drawable/ic_project"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -269,7 +272,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_marginStart="11dp"
                     android:layout_marginTop="21dp"
-                    app:srcCompat="@drawable/ic_jobs"/>
+                    app:srcCompat="@drawable/ic_jobs"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -319,7 +323,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_marginStart="11dp"
                     android:layout_marginTop="21dp"
-                    app:srcCompat="@drawable/ic_info"/>
+                    app:srcCompat="@drawable/ic_info"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -379,7 +384,8 @@
                     android:layout_marginLeft="11dp"
                     android:layout_marginStart="11dp"
                     android:layout_marginTop="21dp"
-                    app:srcCompat="@drawable/ic_users"/>
+                    app:srcCompat="@drawable/ic_users"
+                    android:contentDescription="TODO"/>
 
                 <TextView
                     android:id="@+id/textView3"

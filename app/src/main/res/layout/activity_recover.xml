@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/rootView"
@@ -15,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:background="@color/bg"
-        android:elevation="7dp">
+        android:elevation="7dp"
+        tools:targetApi="lollipop">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -24,7 +26,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
-            android:src="@drawable/signin"/>
+            android:src="@drawable/signin"
+            android:contentDescription="TODO"/>
     </RelativeLayout>
 
     <android.support.v7.widget.CardView
@@ -101,7 +104,7 @@
                         android:layout_alignEnd="@+id/email"
                         android:layout_alignRight="@+id/email"
                         android:src="@drawable/icon_mail"
-                        />
+                        android:contentDescription="TODO"/>
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -128,7 +131,9 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:background="@drawable/button3"
-                android:elevation="8dp"/>
+                android:elevation="8dp"
+                android:contentDescription="TODO"
+                tools:targetApi="lollipop"/>
 
         </LinearLayout>
 
@@ -142,7 +147,7 @@
 
         <Button
             android:id="@+id/back"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/create"
             android:layout_alignBottom="@+id/create"

@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 import kotlin.jvm.internal.Intrinsics;
 
+@SuppressWarnings("ALL")
 public final class BareWebActivity extends BaseActivity {
     public static final String URL = "PAGE_URL";
     public static final String TITLE = "PAGE_TITLE";
@@ -32,17 +33,19 @@ public final class BareWebActivity extends BaseActivity {
     private ProgressBar progressBar;
     private WebView webView;
 
+    @SuppressWarnings("ConstantConditions")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_bare_web);
         this.setSupportActionBar(findViewById(id.toolbar));
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra(TITLE));
 
         applyFont(findViewById(id.rootView));
         progressBar = findViewById(id.progressBar);
         webView = findViewById(id.webView);
-        tintProgressBar(progressBar);
+      //  tintProgressBar(progressBar);
         String url = getIntent().getStringExtra(URL);
         initWebView();
         loadPageHtml(url);
