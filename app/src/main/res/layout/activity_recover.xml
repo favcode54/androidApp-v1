@@ -123,7 +123,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/signin"
+                android:id="@+id/recover"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"

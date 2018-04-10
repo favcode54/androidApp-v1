@@ -2,22 +2,24 @@ package org.favcode54;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+
+import static android.view.View.OnClickListener;
+
 /**
  * Created by Zfinix on 3/12/18.
  */
 public class LoginActivity extends BaseActivity {
-    private Button recover;
-    private Button create;
-    private ImageButton signin;
+    private Button recover, create, signin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //applyFont(findViewById(R.id.rootViewx));
         setContentView(R.layout.activity_login);
-        recover = findViewById(R.id.recover);
-        create = findViewById(R.id.create);
+        applyFont(findViewById(R.id.rootView));
+
+        recover = findViewById(R.id.recoverpass);
+        create = findViewById(R.id.signup);
         signin = findViewById(R.id.signin);
 
         recover.setOnClickListener(v -> {
@@ -30,7 +32,12 @@ public class LoginActivity extends BaseActivity {
             startActivity(cal);
         });
 
-        signin.setOnClickListener(v -> SignIn());
+        signin.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               SignIn();
+            }
+        });
 
     }
 

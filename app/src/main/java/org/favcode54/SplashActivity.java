@@ -21,7 +21,7 @@ public class SplashActivity extends BaseActivity {
         changeStatusBarColor();
         String indicator = getIntent().getStringExtra("BallClipRotatePulseIndicator");
         avi = findViewById(R.id.avi);
-        avi.setIndicator(indicator);
+        avi.setIndicator("BallClipRotatePulseIndicator");
 
         start();
 

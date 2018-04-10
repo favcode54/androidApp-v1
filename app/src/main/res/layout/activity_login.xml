@@ -3,7 +3,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:id="@+id/rootViewx"
+                android:id="@+id/rootView"
                 android:layout_height="match_parent"
                 android:background="@color/bg">
 
@@ -181,7 +181,7 @@
 
             </LinearLayout>
 
-            <ImageButton
+            <Button
                 android:id="@+id/signin"
                 android:layout_width="190dp"
                 android:layout_height="45dp"
@@ -205,7 +205,7 @@
         >
 
         <Button
-            android:id="@+id/create"
+            android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/signin"
@@ -221,7 +221,7 @@
             tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
 
         <Button
-            android:id="@+id/recover"
+            android:id="@+id/recoverpass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/create"
