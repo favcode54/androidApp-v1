@@ -4,20 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/rootView"
     android:layout_height="match_parent"
     android:background="#ffffff">
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_height="330dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:backgroundTint="@color/bg"
         app:srcCompat="@drawable/ic_arc"
         tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="314dp"/>
+        tools:layout_editor_absoluteY="314dp"
+        android:contentDescription="arch"
+        tools:targetApi="lollipop"/>
 
     <ImageView
         android:id="@+id/img"
@@ -26,7 +29,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="57dp"
-        app:srcCompat="@drawable/icon2"/>
+        app:srcCompat="@drawable/icon2"
+        android:contentDescription="logo"/>
 
     <Button
         android:id="@+id/signin"
@@ -36,7 +40,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
         android:background="@drawable/button4"
-        android:elevation="5dp"/>
+        android:elevation="5dp"
+        tools:targetApi="lollipop"/>
 
     <Button
         android:id="@+id/signup"
@@ -45,7 +50,8 @@
         android:layout_alignLeft="@+id/signin"
         android:layout_alignStart="@+id/signin"
         android:layout_alignTop="@+id/imageView6"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="86dp"
         android:background="@drawable/button2"
-        android:elevation="5dp"/>
+        android:elevation="5dp"
+        tools:targetApi="lollipop"/>
 </RelativeLayout>

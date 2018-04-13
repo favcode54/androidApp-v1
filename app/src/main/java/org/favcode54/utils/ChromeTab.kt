@@ -1,5 +1,6 @@
 package org.favcode54.utils
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,6 +18,7 @@ import java.lang.ref.WeakReference
  */
 
 object ChromeTab {
+    @SuppressLint("InlinedApi")
     fun loadPage(activity: FragmentActivity, link: String) {
         val weakReference = WeakReference(activity)
         val context = weakReference.get()
@@ -33,14 +35,14 @@ object ChromeTab {
         customTabsIntent.intent.data = Uri.parse(link)
 
         val PACKAGE_NAME = "com.android.chrome"
-        val packageManager = context.getPackageManager()
+        val packageManager = context.packageManager
         val resolveInfoList = packageManager.queryIntentActivities(customTabsIntent.intent, PackageManager.MATCH_DEFAULT_ONLY)
 
-        for (resolveInfo in resolveInfoList) {
-            val packageName = resolveInfo.activityInfo.packageName
-            if (TextUtils.equals(packageName, PACKAGE_NAME))
-                customTabsIntent.intent.`package` = PACKAGE_NAME
-        }
+        resolveInfoList
+                .asSequence()
+                .map { it.activityInfo.packageName }
+                .filter { TextUtils.equals(it, PACKAGE_NAME) }
+                .forEach { customTabsIntent.intent.`package` = PACKAGE_NAME }
         customTabsIntent.intent.putExtra(Intent.EXTRA_REFERRER, Uri.parse("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like " + "Gecko) Chrome/61.0.3163.100 Safari/537.36"))
         try {
             customTabsIntent.launchUrl(context, Uri.parse(link))

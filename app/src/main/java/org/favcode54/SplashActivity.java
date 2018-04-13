@@ -1,6 +1,5 @@
 package org.favcode54;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -10,20 +9,19 @@ import android.view.WindowManager;
 
 import com.wang.avi.AVLoadingIndicatorView;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
 
         // making notification bar transparent
         changeStatusBarColor();
         String indicator = getIntent().getStringExtra("BallClipRotatePulseIndicator");
         avi = findViewById(R.id.avi);
-        avi.setIndicator(indicator);
+        avi.setIndicator("BallClipRotatePulseIndicator");
 
         start();
 
@@ -45,7 +43,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 try {
                     sleep(8000);
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    startActivity(new Intent(getApplicationContext(), SplashintActivity.class));
 
                     finish();
                 } catch (InterruptedException e) {
@@ -57,7 +55,7 @@ public class SplashActivity extends Activity {
         startAnim();
     }
 
-    void startAnim() {
+    private void startAnim() {
         avi.show();
         // or avi.smoothToShow();
     }
