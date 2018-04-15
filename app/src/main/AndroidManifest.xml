@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.favcode54">
+    package="org.favcode54">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".blog.AppController"
@@ -15,51 +16,67 @@
         <activity
             android:name=".blog.MainActivity"
             android:noHistory="true"
-            android:theme="@style/AppTheme.Toolba">
-        </activity>
+            android:theme="@style/AppTheme.Toolba" />
         <activity
             android:name=".LoginActivity"
             android:noHistory="true"
-            android:theme="@style/white"/>
+            android:theme="@style/white" />
         <activity
             android:name=".RecoverActivity"
-            android:theme="@style/white"/>
+            android:theme="@style/white" />
         <activity
             android:name=".MainActivity"
             android:noHistory="true"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".SplashintActivity"
             android:noHistory="true"
-            android:theme="@style/white"/>
+            android:theme="@style/white" />
         <activity
             android:name=".MenuActivity"
-            android:theme="@style/white"/>
+            android:theme="@style/white" />
         <activity
             android:name=".SignupActivity"
-            android:theme="@style/white"/>
+            android:theme="@style/white" />
         <activity
             android:name=".BareWebActivity"
             android:parentActivityName=".MenuActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.favcode54.MenuActivity"/>
+                android:value="org.favcode54.MenuActivity" />
         </activity>
-        <activity android:name=".ProfileActivity"
-                  android:theme="@style/AppTheme.Toolba">
+        <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/AppTheme.Toolba" />
+        <activity
+            android:name=".home.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme">
+                 <!--<intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".AboutUs"
+            android:label="@string/title_activity_about_us"
+            android:parentActivityName=".home.HomeActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.favcode54.home.HomeActivity" />
         </activity>
     </application>
 
