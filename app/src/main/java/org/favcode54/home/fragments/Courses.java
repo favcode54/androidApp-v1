@@ -23,6 +23,7 @@ public class Courses extends Fragment {
     public Courses() {
         // Required empty public constructor
     }
+
     private Context context;
     private View rootView;
 

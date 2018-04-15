@@ -47,7 +47,9 @@ public class Dashboard extends Fragment {
     }
 
     private void refreshDashboard() {
+
         //TODO: refresh dashboard and cache to device
+
     }
 
     private void loadCachedDashboard() {

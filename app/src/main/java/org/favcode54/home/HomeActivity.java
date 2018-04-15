@@ -195,6 +195,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.menu:
+                
                 //Floating action button opens drawer
                 toggleDrawer(true);
                 break;
