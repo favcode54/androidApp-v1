@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-@SuppressWarnings("ALL")
+//@SuppressWarnings("ALL")
 public class MainActivity extends BaseActivity {
     private ImageButton menux;
 

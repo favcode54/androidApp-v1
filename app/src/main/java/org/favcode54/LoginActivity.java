@@ -32,12 +32,7 @@ public class LoginActivity extends BaseActivity {
             startActivity(cal);
         });
 
-        signin.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               SignIn();
-            }
-        });
+        signin.setOnClickListener(v -> SignIn());
 
     }
 
