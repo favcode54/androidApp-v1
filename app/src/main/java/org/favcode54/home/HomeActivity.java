@@ -23,6 +23,8 @@ import org.favcode54.R;
 import org.favcode54.home.fragments.Courses;
 import org.favcode54.home.fragments.Dashboard;
 import org.favcode54.utils.PersistentStorageUtils;
+import org.favcode54.views.NormalTextView;
+import org.favcode54.views.SemiBoldTextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,6 +47,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     //tag fragments during fragment transactions
     private static final String myDashboardTag = "my_dashboard", coursesTag = "courses";
 
+    //On orientation change use tag to restore current fragment
+    private String current_frag = "my_dashboard";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         initialize();
         registerClickEvents();
 
-        // initially switch to Dashboard as default fragment
-        switchFragment("");
+        if(savedInstanceState == null) {
+            // initially switch to Dashboard as default fragment
+            switchFragment("");
+        }
 
     }
 
@@ -85,13 +91,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         menuDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        //update user's name and picture on the UI
+        updateUserUI();
+
+    }
+
+    private void updateUserUI() {
         //load user's profile picture if available
-        String profile_picture_url = persistentStorageUtils.quick_retrieve("profile_picture_url");
+        String profile_picture_url = persistentStorageUtils.getProfilePicture();
         if(!profile_picture_url.isEmpty()) {
-            Glide.with(this).load(profile_picture_url).into(profile_picture_image_view);
+            Glide.with(this).load(profile_picture_url).placeholder(R.drawable.avatar).into(profile_picture_image_view);
         }
 
+        //set name
+        SemiBoldTextView name = findViewById(R.id.name);
+        name.setText(persistentStorageUtils.getFullName());
 
+        //set location
+        NormalTextView location = findViewById(R.id.location);
+        location.setText(persistentStorageUtils.getUserAddress());
     }
 
     private void switchFragment(String fragmantTag){
@@ -100,14 +118,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (fragmantTag){
             case myDashboardTag:
                 setTitle("My dashboard");
+                current_frag = myDashboardTag;
                 fragmentTransaction.replace(container, my_dashboard, fragmantTag).commit();
                 break;
             case coursesTag:
+                current_frag = coursesTag;
                 setTitle("Courses");
                 fragmentTransaction.replace(container, courses, fragmantTag).commit();
                 break;
             default:
                 setTitle("My dashboard");
+                current_frag = myDashboardTag;
                 fragmentTransaction.replace(container, my_dashboard, myDashboardTag).commit();
                 break;
         }
@@ -200,5 +221,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 toggleDrawer(true);
                 break;
         }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        switchFragment(current_frag);
     }
 }
