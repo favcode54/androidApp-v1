@@ -9,6 +9,8 @@ import android.view.WindowManager;
 
 import com.wang.avi.AVLoadingIndicatorView;
 
+import org.favcode54.utils.PersistentStorageUtils;
+
 public class SplashActivity extends BaseActivity {
     private AVLoadingIndicatorView avi;
 
@@ -16,6 +18,14 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //Check if this is first opening of app. Splash is not neccessary after first run
+        PersistentStorageUtils psu = new PersistentStorageUtils(this);
+        if(!psu.isFirstRun()){
+            startActivity(new Intent(SplashActivity.this, SplashintActivity.class));
+            finish();
+        }
+
 
         // making notification bar transparent
         changeStatusBarColor();
@@ -42,8 +52,8 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    sleep(8000);
-                    startActivity(new Intent(getApplicationContext(), SplashintActivity.class));
+                    sleep(7000);
+                    startActivity(new Intent(SplashActivity.this, SplashintActivity.class));
 
                     finish();
                 } catch (InterruptedException e) {

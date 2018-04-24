@@ -63,11 +63,14 @@
             android:name=".home.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme">
-                 <!--<intent-filter>
+
+            <!--
+        <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>-->
+        </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".AboutUs"
@@ -78,6 +81,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.favcode54.home.HomeActivity" />
         </activity>
+        <activity android:name=".home.CourseActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

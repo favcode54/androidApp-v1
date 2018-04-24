@@ -148,5 +148,7 @@
     <string name="our_vision_excerpt">To train 30,000 youths in 5years and connect them with technology firms that will utilize their newly acquired skills and innovative mindset in Africa.</string>
     <string name="our_goal">Our goal</string>
     <string name="our_goal_excerpt">To Invade africa with technology and in the process eradicate poverty through innovations.</string>
+    <string name="favcode_email">\@favcode54.org</string>
+    <string name="endpoint_root">https://portal.favcode54.org/API/</string>
 
 </resources>

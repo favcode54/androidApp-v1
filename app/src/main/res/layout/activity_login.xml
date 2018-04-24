@@ -5,9 +5,163 @@
                 android:layout_width="match_parent"
                 android:id="@+id/rootView"
                 android:layout_height="match_parent"
-                android:background="@color/bg">
+                android:background="@color/colorPrimary">
 
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <org.favcode54.views.BoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:text="@string/app_name"/>
+    <org.favcode54.views.NormalTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#fff"
+        android:text="SIGN IN"
+        android:layout_gravity="center_horizontal"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+        <org.favcode54.views.NormalTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16.5sp"
+            android:textColor="#fff"
+            android:text="Favcode email"
+            android:layout_marginTop="14dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:background="#0000"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:layout_marginTop="6dp"
+            android:textStyle="bold"
+            android:maxLength="100"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:id="@+id/email"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fff"/>
+        <org.favcode54.views.NormalTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16.5sp"
+            android:textColor="#fff"
+            android:text="Password"
+            android:layout_marginTop="14dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:background="#0000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:maxLength="100"
+            android:textColor="#fff"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:id="@+id/password"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fff"/>
+    </LinearLayout>
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="13dp"
+        android:layout_gravity="center_horizontal"
+        >
+        <ProgressBar
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/progress"
+            android:visibility="invisible"
+            />
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#fff"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="3dp"
+            app:cardUseCompatPadding="true"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/signin"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:textColor="@color/colorPrimary"
+                android:text="Log In"/>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="100"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/signin"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/signin"
+            android:layout_weight="50"
+            android:background="?attr/selectableItemBackground"
+            android:text="Create an Account"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
+<ImageView
+    android:layout_width="1dp"
+    android:layout_height="30dp"
+    android:background="#fff"
+    android:layout_gravity="center_vertical"/>
+        <Button
+            android:id="@+id/recoverpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="?attr/selectableItemBackground"
+            android:text="Recover Password"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
+
+    </LinearLayout>
+   <!-- <RelativeLayout
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="261dp"
@@ -38,7 +192,7 @@
         android:layout_marginLeft="21dp"
         android:layout_marginRight="21dp"
         android:layout_marginTop="20dp"
-        android:background="#FFFFFF"
+        app:cardBackgroundColor="#fff"
         android:visibility="visible"
         app:cardCornerRadius="9dp"
         app:cardElevation="7dp"
@@ -65,7 +219,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
-                    android:text="Username"
+                    android:text="Email address"
                     android:textColor="#b1b1b1"
                     android:textSize="13sp"
                     tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
@@ -79,8 +233,7 @@
                     android:visibility="visible">
 
                     <EditText
-                        android:id="@+id/username"
-                        style="@android:style/Widget.AutoCompleteTextView"
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_alignParentLeft="true"
@@ -181,62 +334,35 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/signin"
+            <RelativeLayout
                 android:layout_width="190dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button"
-                android:elevation="8dp"
-                android:contentDescription="TODO"
-                tools:targetApi="lollipop"/>
+                >
+                <Button
+                    android:id="@+id/signin"
+                    android:layout_width="190dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button"
+                    android:elevation="8dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="TODO"
+                    tools:targetApi="lollipop"/>
+                <ProgressBar
+                    android:layout_width="43dp"
+                    android:layout_height="43dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/progress"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/cardView"
-        android:layout_marginBottom="30dp"
-        android:orientation="horizontal"
-        >
-
-        <Button
-            android:id="@+id/signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/signin"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/signin"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="Create an Account"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
-
-        <Button
-            android:id="@+id/recoverpass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/create"
-            android:layout_alignBottom="@+id/create"
-            android:layout_alignLeft="@+id/signin"
-            android:layout_alignStart="@+id/signin"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="Recover Password"
-            android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="HardcodedText,ObsoleteLayoutParam"/>
-
-    </LinearLayout>
+   -->
 
 </RelativeLayout>

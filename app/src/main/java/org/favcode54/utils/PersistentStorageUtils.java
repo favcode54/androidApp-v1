@@ -7,6 +7,12 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 /**
  * Created by Intija on 4/15/2018.
  */
@@ -42,21 +48,83 @@ public class PersistentStorageUtils {
         }
     }
 
-    public boolean isLoggedIn() {
-        return !quick_retrieve("user_id").isEmpty();
+    public void cacheUserDetails(JsonObject details) {
+        quick_store("user_details", details.toString());
     }
-    public boolean isConnected() {
-        ConnectivityManager cd = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cd != null) {
-            NetworkInfo[] info = cd.getAllNetworkInfo();
-            if (info != null)
-                for (NetworkInfo anInfo : info) {
-                    if (anInfo.getState() == NetworkInfo.State.CONNECTED) {
-                        return true;
-                    }
-                }
+    public JsonObject getUserDetails(){
+        String temp = quick_retrieve("user_details");
 
+        if(!temp.isEmpty() && temp.contains("{")){
+            return new JsonParser().parse(temp).getAsJsonObject();
+        }else{
+            return new JsonObject();
         }
-        return false;
+    }
+    public String getFirstName(){
+        JsonElement temp = getUserDetails().get("first_name");
+        return temp instanceof JsonNull ? "" : temp.getAsString();
+    }
+    public String getLastName(){
+        JsonElement temp = getUserDetails().get("last_name");
+        return temp instanceof JsonNull ? "" : temp.getAsString();
+    }
+    public String getFullName(){
+        return String.format("%s %s", getFirstName(), getLastName());
+    }
+    public String getUserID(){
+        return quick_retrieve("user_id");
+    }
+    public String getProfilePicture(){
+        JsonElement pic_name = getUserDetails().get("picture");
+        return "https://portal.favcode54.org/account/pictures/" + (pic_name instanceof JsonNull ? "" : pic_name.getAsString());
+    }
+
+    public void cacheAllCourses(JsonArray courses){
+        quick_store("all_courses", courses.toString());
+    }
+
+    public JsonArray getAllCourses(){
+        String temp = quick_retrieve("all_courses");
+
+        if(!temp.isEmpty() && temp.contains("{")){
+            return new JsonParser().parse(temp).getAsJsonArray();
+        }else{
+            return new JsonArray();
+        }
+    }
+
+    public void cacheUserCourses(JsonObject courses){
+        quick_store("user_courses", courses.toString());
+    }
+
+    public JsonObject getUserCourses(){
+        String temp = quick_retrieve("user_courses");
+
+        if(!temp.isEmpty() && temp.contains("{")){
+            return new JsonParser().parse(temp).getAsJsonObject();
+        }else{
+            return new JsonObject();
+        }
+    }
+
+    public String getUserAddress() {
+        JsonObject user_details = getUserDetails();
+        JsonElement temp = user_details.get("state"),
+                temp2 = user_details.get("country");
+
+        return (temp instanceof JsonNull || temp2 instanceof JsonNull) ? "" : (temp.getAsString() + ", " + temp2.getAsString());
+    }
+
+    public boolean isLoggedIn(){
+        return !getUserID().isEmpty() && !getFirstName().isEmpty();
+    }
+
+    public boolean isFirstRun() {
+        if(quick_retrieve("first_run").isEmpty()){
+            quick_store("first_run", "nope");
+            return true;
+        }else{
+            return false;
+        }
     }
 }
