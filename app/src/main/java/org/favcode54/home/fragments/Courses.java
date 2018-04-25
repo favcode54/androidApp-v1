@@ -253,6 +253,7 @@ public class Courses extends Fragment {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
+        
         super.onSaveInstanceState(outState);
 
         outState.putParcelable("my_courses_recycler_state", my_c.onSaveInstanceState());
