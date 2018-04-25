@@ -3,6 +3,7 @@ package org.favcode54.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
@@ -27,6 +28,7 @@ import org.favcode54.views.NormalTextView;
 import org.favcode54.views.SemiBoldTextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import timber.log.Timber;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -223,9 +225,21 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("current_fragment", current_frag);
+    }
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        switchFragment(current_frag);
+
+        if(savedInstanceState == null){
+            return;
+        }
+
+        switchFragment(savedInstanceState.getString("current_fragment"));
     }
 }

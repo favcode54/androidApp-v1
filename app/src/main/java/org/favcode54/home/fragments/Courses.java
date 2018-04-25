@@ -253,23 +253,25 @@ public class Courses extends Fragment {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
 
         outState.putParcelable("my_courses_recycler_state", my_c.onSaveInstanceState());
         outState.putParcelable("all_courses_recycler_state_mobile", all_c_mobile_manager.onSaveInstanceState());
         outState.putParcelable("all_courses_recycler_state_tab", all_c_tab_manager.onSaveInstanceState());
 
-        super.onSaveInstanceState(outState);
     }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
         if(savedInstanceState == null){
             return;
         }
+
         my_c.onRestoreInstanceState(savedInstanceState.getParcelable("my_courses_recycler_state"));
         all_c_mobile_manager.onRestoreInstanceState(savedInstanceState.getParcelable("all_courses_recycler_state_mobile"));
         all_c_tab_manager.onRestoreInstanceState(savedInstanceState.getParcelable("all_courses_recycler_state_tab"));
 
-        super.onViewStateRestored(savedInstanceState);
     }
 }
