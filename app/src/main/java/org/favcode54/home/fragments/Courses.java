@@ -183,9 +183,12 @@ public class Courses extends Fragment {
         //temporary implementation. Since only one course can be assigned
         //to a user for now
         JsonArray temp_impl_array = new JsonArray();
-        temp_impl_array.add(persistentStorageUtils.getUserCourses());
+        JsonObject course_object =persistentStorageUtils.getUserCourses();
+        temp_impl_array.add(course_object);
 
-        my_courses_adapter.updateAdapter(temp_impl_array);
+        if(!course_object.toString().equals("{}")){
+            my_courses_adapter.updateAdapter(temp_impl_array);
+        }
         all_courses_adapter.updateAdapter(persistentStorageUtils.getAllCourses());
 
     }

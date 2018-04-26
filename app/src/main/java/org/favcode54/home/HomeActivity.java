@@ -1,12 +1,15 @@
 package org.favcode54.home;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +19,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -185,12 +190,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 toggleDrawer(false);
 
                 //delay switching of fragment to prevent tiny lags while drawer closes
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        switchFragment(myDashboardTag);
-                    }
-                }, 320);
+                new Handler().postDelayed(() -> switchFragment(myDashboardTag), 320);
 
                 break;
             case R.id.courses:
@@ -198,12 +198,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 toggleDrawer(false);
 
                 //delay switching of fragment to prevent tiny lags while drawer closes
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        switchFragment(coursesTag);
-                    }
-                }, 320);
+                new Handler().postDelayed(() -> switchFragment(coursesTag), 320);
 
                 break;
             case R.id.about_us:
@@ -213,8 +208,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.contact_us:
+                toggleDrawer(false);
 
-                //TODO: start contact us activity
+                new Handler().postDelayed(() -> switchFragment(coursesTag), 320);
+                contactUs();
 
                 break;
             case R.id.menu:
@@ -232,6 +229,43 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         outState.putString("current_fragment", current_frag);
     }
 
+    public void contactUs() {
+        AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        View v = LayoutInflater.from(this).inflate(R.layout.contact_us, null);
+
+        final EditText name = v.findViewById(R.id.name),
+                email = v.findViewById(R.id.email),
+                message = v.findViewById(R.id.message);
+        View clicker = v.findViewById(R.id.submit);
+
+        ab.setView(v);
+
+        final AlertDialog a = ab.create();
+        clicker.setOnClickListener(view -> {
+            String n = name.getText().toString(),
+                    e = email.getText().toString(),
+                    m = message.getText().toString();
+
+            if(e.isEmpty() || m.isEmpty() || n.isEmpty()){
+                Snackbar.make(view, "Please fill in all fields", Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            if(!e.contains("@") || !e.contains(".")){
+                Snackbar.make(view, "Invalid email address", Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            if(m.length() < 10){
+                Snackbar.make(view, "Please include more info in your message", BaseTransientBottomBar.LENGTH_LONG).show();
+                return;
+            }
+
+            a.cancel();
+            Toast.makeText(this, "Sending message...", Toast.LENGTH_SHORT).show();
+           // sendContactUsEmail(n, e, m);
+
+        });
+        a.show();
+    }
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
