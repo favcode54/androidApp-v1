@@ -61,7 +61,7 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.CustomView
         void bind(int position) {
 
             JsonObject topic = topics_array.get(position).getAsJsonObject();
-            topic_name.setText(topic.get("topic_name").getAsString());
+            topic_name.setText(topic.get("subject_name").getAsString());
         }
     }
 }
