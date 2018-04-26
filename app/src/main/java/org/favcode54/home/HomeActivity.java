@@ -1,11 +1,15 @@
 package org.favcode54.home;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PersistableBundle;
+import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +19,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -23,8 +29,11 @@ import org.favcode54.R;
 import org.favcode54.home.fragments.Courses;
 import org.favcode54.home.fragments.Dashboard;
 import org.favcode54.utils.PersistentStorageUtils;
+import org.favcode54.views.NormalTextView;
+import org.favcode54.views.SemiBoldTextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import timber.log.Timber;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -45,6 +54,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     //tag fragments during fragment transactions
     private static final String myDashboardTag = "my_dashboard", coursesTag = "courses";
 
+    //On orientation change use tag to restore current fragment
+    private String current_frag = "my_dashboard";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +66,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         initialize();
         registerClickEvents();
 
-        // initially switch to Dashboard as default fragment
-        switchFragment("");
+        if(savedInstanceState == null) {
+            // initially switch to Dashboard as default fragment
+            switchFragment("");
+        }
 
     }
 
@@ -85,13 +98,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         menuDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        //update user's name and picture on the UI
+        updateUserUI();
+
+    }
+
+    private void updateUserUI() {
         //load user's profile picture if available
-        String profile_picture_url = persistentStorageUtils.quick_retrieve("profile_picture_url");
+        String profile_picture_url = persistentStorageUtils.getProfilePicture();
         if(!profile_picture_url.isEmpty()) {
-            Glide.with(this).load(profile_picture_url).into(profile_picture_image_view);
+            Glide.with(this).load(profile_picture_url).placeholder(R.drawable.avatar).into(profile_picture_image_view);
         }
 
+        //set name
+        SemiBoldTextView name = findViewById(R.id.name);
+        name.setText(persistentStorageUtils.getFullName());
 
+        //set location
+        NormalTextView location = findViewById(R.id.location);
+        location.setText(persistentStorageUtils.getUserAddress());
     }
 
     private void switchFragment(String fragmantTag){
@@ -100,14 +125,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (fragmantTag){
             case myDashboardTag:
                 setTitle("My dashboard");
+                current_frag = myDashboardTag;
                 fragmentTransaction.replace(container, my_dashboard, fragmantTag).commit();
                 break;
             case coursesTag:
+                current_frag = coursesTag;
                 setTitle("Courses");
                 fragmentTransaction.replace(container, courses, fragmantTag).commit();
                 break;
             default:
                 setTitle("My dashboard");
+                current_frag = myDashboardTag;
                 fragmentTransaction.replace(container, my_dashboard, myDashboardTag).commit();
                 break;
         }
@@ -162,12 +190,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 toggleDrawer(false);
 
                 //delay switching of fragment to prevent tiny lags while drawer closes
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        switchFragment(myDashboardTag);
-                    }
-                }, 320);
+                new Handler().postDelayed(() -> switchFragment(myDashboardTag), 320);
 
                 break;
             case R.id.courses:
@@ -175,12 +198,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 toggleDrawer(false);
 
                 //delay switching of fragment to prevent tiny lags while drawer closes
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        switchFragment(coursesTag);
-                    }
-                }, 320);
+                new Handler().postDelayed(() -> switchFragment(coursesTag), 320);
 
                 break;
             case R.id.about_us:
@@ -190,8 +208,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.contact_us:
+                toggleDrawer(false);
 
-                //TODO: start contact us activity
+                new Handler().postDelayed(() -> switchFragment(coursesTag), 320);
+                contactUs();
 
                 break;
             case R.id.menu:
@@ -200,5 +220,60 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 toggleDrawer(true);
                 break;
         }
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("current_fragment", current_frag);
+    }
+
+    public void contactUs() {
+        AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        View v = LayoutInflater.from(this).inflate(R.layout.contact_us, null);
+
+        final EditText name = v.findViewById(R.id.name),
+                email = v.findViewById(R.id.email),
+                message = v.findViewById(R.id.message);
+        View clicker = v.findViewById(R.id.submit);
+
+        ab.setView(v);
+
+        final AlertDialog a = ab.create();
+        clicker.setOnClickListener(view -> {
+            String n = name.getText().toString(),
+                    e = email.getText().toString(),
+                    m = message.getText().toString();
+
+            if(e.isEmpty() || m.isEmpty() || n.isEmpty()){
+                Snackbar.make(view, "Please fill in all fields", Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            if(!e.contains("@") || !e.contains(".")){
+                Snackbar.make(view, "Invalid email address", Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+            if(m.length() < 10){
+                Snackbar.make(view, "Please include more info in your message", BaseTransientBottomBar.LENGTH_LONG).show();
+                return;
+            }
+
+            a.cancel();
+            Toast.makeText(this, "Sending message...", Toast.LENGTH_SHORT).show();
+           // sendContactUsEmail(n, e, m);
+
+        });
+        a.show();
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if(savedInstanceState == null){
+            return;
+        }
+
+        switchFragment(savedInstanceState.getString("current_fragment"));
     }
 }

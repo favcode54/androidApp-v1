@@ -2,11 +2,14 @@
 <resources>
     <color name="colorPrimary">#47baa4</color>
     <color name="colorPrimaryDark">#237c6b</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#6ae1ca</color>
     <color name="foreground_material_light">#ffffff</color>
     <color name="background_material_light">#f9f9f9</color>
     <color name="text_color">#525252</color>
     <color name="bg">#fafaf4</color>
+
+    <color name="pie_color">#c174a2</color>
+    <color name="pie_color_faded">#f1d7e6</color>
 
     <color name="cardBackground">#424242</color>
     <!--Scrollbar-->

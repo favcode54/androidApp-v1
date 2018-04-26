@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="org.favcode54.home.CourseActivity"
+    tools:showIn="@layout/activity_course2">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+       <org.favcode54.views.BoldTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="16sp"
+           android:textColor="@color/trans_grey4"
+           android:text="Course description"
+           android:layout_marginLeft="13dp"
+           android:layout_marginTop="13dp"
+           android:layout_marginBottom="8dp"/>
+       <org.favcode54.views.NormalTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="#d000"
+           android:textSize="16sp"
+           android:text="Course description goes here"
+           android:layout_marginLeft="13dp"
+           android:id="@+id/description"
+           android:layout_marginRight="13dp"/>
+       <org.favcode54.views.BoldTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="16sp"
+           android:textColor="@color/trans_grey4"
+           android:text="Topics"
+           android:layout_marginLeft="13dp"
+           android:layout_marginTop="13dp"
+           android:layout_marginBottom="8dp"/>
+       <android.support.v7.widget.RecyclerView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/topics_recycler">
+
+       </android.support.v7.widget.RecyclerView>
+   </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

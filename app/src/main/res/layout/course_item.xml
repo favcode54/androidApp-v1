@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#fff"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="4dp"
+    android:clickable="true"
+    android:id="@+id/clickable_area"
+    android:stateListAnimator="@animator/lift"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_marginTop="1dp"
+    android:layout_marginRight="13dp"
+    android:layout_marginLeft="13dp"
+    android:layout_marginBottom="12dp"
+    android:focusable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="?attr/selectableItemBackground"
+            android:src="@color/colorPrimary"
+            android:id="@+id/thumbnail"
+            />
+        <org.favcode54.views.SemiBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course title"
+            android:textSize="15sp"
+            android:textColor="@color/trans_grey4"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"/>
+        <org.favcode54.views.NormalTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#d000"
+            android:layout_marginLeft="13dp"
+            android:layout_marginBottom="13dp"
+            android:maxLines="2"
+            android:id="@+id/course_title"
+            android:ellipsize="end"
+            android:layout_marginRight="10dp"
+            android:text="Title of course goes here"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+</RelativeLayout>

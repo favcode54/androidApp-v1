@@ -1,12 +1,58 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.favcode54.home.fragments.Courses">
-
-    <TextView
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <org.favcode54.views.BoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/trans_grey4"
+        android:text="My courses"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="5dp"
+        />
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Courses" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:id="@+id/my_courses_recycler_view">
 
-</FrameLayout>
+    </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#ddd"
+        android:layout_marginTop="10dp"/>
+    <org.favcode54.views.BoldTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/trans_grey4"
+        android:text="All Favcode54 courses"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="5dp"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/all_courses_recycler_view">
+
+    </android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/progress"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:visibility="gone"/>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>
