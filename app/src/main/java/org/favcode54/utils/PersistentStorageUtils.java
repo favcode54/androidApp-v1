@@ -60,6 +60,33 @@ public class PersistentStorageUtils {
             return new JsonObject();
         }
     }
+    public JsonObject getUserGradeInfo(){
+        JsonElement raw = getUserDetails().get("grade");
+
+        if(raw instanceof JsonNull){
+            return null;
+        }else{
+            return raw.getAsJsonObject();
+        }
+    }
+    public int getUserTotalGrade(){
+        JsonObject grade_info = getUserGradeInfo();
+
+        if(grade_info == null){
+            return 0;
+        }else{
+            return grade_info.get("total").getAsInt();
+        }
+    }
+    public int getUserMaxGrade(){
+        JsonObject grade_info = getUserGradeInfo();
+
+        if(grade_info == null){
+            return 0;
+        }else{
+            return grade_info.get("expected_total").getAsInt();
+        }
+    }
     public String getFirstName(){
         JsonElement temp = getUserDetails().get("first_name");
         return temp instanceof JsonNull ? "" : temp.getAsString();

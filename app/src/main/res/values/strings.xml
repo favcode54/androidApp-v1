@@ -150,5 +150,6 @@
     <string name="our_goal_excerpt">To Invade africa with technology and in the process eradicate poverty through innovations.</string>
     <string name="favcode_email">\@favcode54.org</string>
     <string name="endpoint_root">https://portal.favcode54.org/API/</string>
+    <string name="title_activity_course">CourseActivity</string>
 
 </resources>

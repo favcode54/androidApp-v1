@@ -81,8 +81,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.favcode54.home.HomeActivity" />
         </activity>
-        <activity android:name=".home.CourseActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".home.CourseActivity"
+            android:label="@string/title_activity_course"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
