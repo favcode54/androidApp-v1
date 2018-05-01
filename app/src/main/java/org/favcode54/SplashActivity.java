@@ -24,6 +24,7 @@ public class SplashActivity extends BaseActivity {
         if(!psu.isFirstRun()){
             startActivity(new Intent(SplashActivity.this, SplashintActivity.class));
             finish();
+            return;
         }
 
 

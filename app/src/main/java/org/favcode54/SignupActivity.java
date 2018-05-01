@@ -39,7 +39,7 @@ public class SignupActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.second_activity_signup);
 
         //applyFont(findViewById(R.id.rootView));
 
@@ -66,6 +66,8 @@ public class SignupActivity extends BaseActivity {
             return;
         }
 
+        loading();
+
         //Get content of inputs to string
                f_name  = first_name.getText().toString();
                l_name = last_name.getText().toString();
@@ -79,6 +81,11 @@ public class SignupActivity extends BaseActivity {
 
         if(!e_mail.contains("@") || !e_mail.contains(".")){
             snackError("Invalid email address");
+            return;
+        }
+
+        if(!e_mail.toLowerCase().endsWith("favcode54.org")){
+            snackError("Only Favcode54 email addresses are allowed");
             return;
         }
 
@@ -127,9 +134,9 @@ public class SignupActivity extends BaseActivity {
                 .add("last_name", l_name)
                 .add("email", e_mail)
                 .add("password", pass)
+                .add("re_password", pass)
                 .build();
 
-        loading();
 
         try {
             QuickNetUtils.makePostRequest(
@@ -182,7 +189,7 @@ public class SignupActivity extends BaseActivity {
                     .enqueue(new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
-                            runOnUiThread(() -> Toast.makeText(SignupActivity.this, "Unable to log in. Please retry", Toast.LENGTH_SHORT).show());
+                            runOnUiThread(() -> alertError("Unable to log in. Please retry"));
 
                         }
 
@@ -201,6 +208,7 @@ public class SignupActivity extends BaseActivity {
                                 persistentStorageUtils.cacheUserDetails(user_object.get("details").getAsJsonObject());
 
                                 //DONE start home activity
+                                stopLoading();
                                 startActivity(new Intent(SignupActivity.this, HomeActivity.class));
                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                 finish();

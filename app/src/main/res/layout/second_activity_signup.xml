@@ -16,20 +16,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/favcode_logo"
+            android:layout_marginTop="13dp"/>
         <org.favcode54.views.BoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textColor="#fff"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp"
             android:text="@string/app_name"/>
-        <org.favcode54.views.NormalTextView
+        <org.favcode54.views.SemiBoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="17.5sp"
             android:textColor="#fff"
             android:text="SIGN UP"
+            android:layout_marginBottom="5dp"
             android:layout_gravity="center_horizontal"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -234,7 +242,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:background="?attr/selectableItemBackground"
-            android:text="Recover Password"
+            android:text="RECOVER"
             android:textColor="#fff"
             android:textSize="13sp"
             tools:ignore="HardcodedText,ObsoleteLayoutParam"/>

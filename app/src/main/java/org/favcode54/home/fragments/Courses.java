@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -108,7 +110,11 @@ public class Courses extends Fragment {
                                     TODO: can be assigned to a user. To support multiple courses a new version of this app
                                     TODO: must be released after the implementation have been completed
                                  **/
-                                persistentStorageUtils.cacheUserCourses(response_json.get("0").getAsJsonObject());
+                                JsonElement raw_uc = response_json.get("0");
+
+                                if(raw_uc != null && !(raw_uc instanceof JsonNull)) {
+                                    persistentStorageUtils.cacheUserCourses(raw_uc.getAsJsonObject());
+                                }
 
                                 //done fetching user courses. Now get all Favcode courses
                                 context.runOnUiThread(() -> {

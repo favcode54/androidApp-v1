@@ -26,6 +26,7 @@ public class SplashintActivity extends BaseActivity {
             //start Home/Portal activity and terminate all fucking processes in this context
             startActivity(new Intent(this, HomeActivity.class));
             finish();
+            return;
 
         }
 
