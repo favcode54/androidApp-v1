@@ -29,10 +29,18 @@ import org.favcode54.R;
 import org.favcode54.home.fragments.Courses;
 import org.favcode54.home.fragments.Dashboard;
 import org.favcode54.utils.PersistentStorageUtils;
+import org.favcode54.utils.QuickNetUtils;
 import org.favcode54.views.NormalTextView;
 import org.favcode54.views.SemiBoldTextView;
 
+import java.io.IOException;
+
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import timber.log.Timber;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -210,8 +218,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.contact_us:
                 toggleDrawer(false);
 
-                new Handler().postDelayed(() -> switchFragment(coursesTag), 320);
-                contactUs();
+                new Handler().postDelayed(this::contactUs, 320);
 
                 break;
             case R.id.menu:
@@ -261,7 +268,34 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             a.cancel();
             Toast.makeText(this, "Sending message...", Toast.LENGTH_SHORT).show();
-           // sendContactUsEmail(n, e, m);
+
+            //Send email to Favcode support email address
+            RequestBody requestBody = new FormBody.Builder()
+                    .add("sender_name", n)
+                    .add("sender_email", e)
+                    .add("message", m)
+                    .build();
+            try {
+                QuickNetUtils.makePostRequest(getString(R.string.endpoint_root) + "contact_us.php", requestBody).enqueue(
+                        new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                if(response.isSuccessful()){
+                                    Timber.i("Contact us message sent");
+                                }else{
+                                    Timber.i("Contact us message not sent");
+                                }
+                            }
+                        }
+                );
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
 
         });
         a.show();
