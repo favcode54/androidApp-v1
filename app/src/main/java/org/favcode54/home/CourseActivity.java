@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.gson.JsonArray;
@@ -27,11 +28,21 @@ public class CourseActivity extends AppCompatActivity {
     private TopicsAdapter topicsAdapter;
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initialize();
         populate();
@@ -52,6 +63,7 @@ public class CourseActivity extends AppCompatActivity {
     private void initialize() {
         course_object = new JsonParser().parse(getIntent().getStringExtra("course_object")).getAsJsonObject();
         topics_recycler = findViewById(R.id.topics_recycler);
+        topics_recycler.setNestedScrollingEnabled(false);
 
         if(!(course_object.get("subjects") instanceof JsonNull)) {
             topicsAdapter = new TopicsAdapter(course_object.get("subjects").getAsJsonArray());
@@ -62,7 +74,12 @@ public class CourseActivity extends AppCompatActivity {
         GridLayoutManager gm = new GridLayoutManager(this, 2);
         topics_recycler.setLayoutManager(gm);
         topics_recycler.setAdapter(topicsAdapter);
-        topics_recycler.setNestedScrollingEnabled(false);
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //TODO: handle orientation change
     }
 }
