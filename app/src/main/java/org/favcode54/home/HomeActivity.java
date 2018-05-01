@@ -25,7 +25,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import org.favcode54.AboutUs;
+import org.favcode54.LoginActivity;
 import org.favcode54.R;
+import org.favcode54.blog.MainActivity;
 import org.favcode54.home.fragments.Courses;
 import org.favcode54.home.fragments.Dashboard;
 import org.favcode54.utils.PersistentStorageUtils;
@@ -87,6 +89,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.courses).setOnClickListener(this);
         findViewById(R.id.about_us).setOnClickListener(this);
         findViewById(R.id.contact_us).setOnClickListener(this);
+        findViewById(R.id.blog).setOnClickListener(this);
     }
 
     private void initialize() {
@@ -183,7 +186,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.logout) {
+            persistentStorageUtils.logOut();
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
             return true;
         }
 
@@ -225,6 +231,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 
                 //Floating action button opens drawer
                 toggleDrawer(true);
+                break;
+            case R.id.blog:
+
+                toggleDrawer(false);
+                new Handler().postDelayed(() -> {
+                    startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }, 320);
+
                 break;
         }
     }

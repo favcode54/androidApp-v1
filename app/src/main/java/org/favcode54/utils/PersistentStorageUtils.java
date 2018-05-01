@@ -139,9 +139,9 @@ public class PersistentStorageUtils {
         JsonElement temp = user_details.get("state"),
                 temp2 = user_details.get("country");
 
-        String concatenated_address = (temp instanceof JsonNull || temp2 instanceof JsonNull) ? "" : (temp.getAsString() + ", " + temp2.getAsString());
+        String concatenated_address = (temp instanceof JsonNull || temp2 instanceof JsonNull) ? "No address set" : (temp.getAsString() + ", " + temp2.getAsString());
 
-        return concatenated_address.contains("null") ? "" : concatenated_address;
+        return concatenated_address.contains("null") ? "No address set" : concatenated_address;
     }
 
     public boolean isLoggedIn(){
@@ -155,5 +155,9 @@ public class PersistentStorageUtils {
         }else{
             return false;
         }
+    }
+
+    public void logOut(){
+        context.getSharedPreferences("general", Context.MODE_PRIVATE).edit().clear().apply();
     }
 }

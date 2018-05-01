@@ -30,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
-                    android:textColor="@color/trans_grey4"
+                    android:textColor="@color/trans_grey3"
                     android:text="Your grading"
                     android:layout_margin="12dp"/>
             </LinearLayout>
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/trans_grey4"
+        android:textColor="@color/trans_grey3"
         android:text="Your courses"
         android:layout_marginLeft="13dp"
         android:layout_marginBottom="5dp"
