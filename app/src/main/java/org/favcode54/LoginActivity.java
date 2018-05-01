@@ -49,13 +49,14 @@ public class LoginActivity extends BaseActivity {
         password = findViewById(R.id.password);
 
         recover.setOnClickListener(v -> {
-            Intent cal = new Intent(getApplicationContext(), RecoverActivity.class);
+            Intent cal = new Intent(this, RecoverActivity.class);
             startActivity(cal);
         });
 
         create.setOnClickListener(v -> {
-            Intent cal = new Intent(getApplicationContext(), SignupActivity.class);
+            Intent cal = new Intent(this, SignupActivity.class);
             startActivity(cal);
+            finish();
         });
 
         signin.setOnClickListener(v -> SignIn());

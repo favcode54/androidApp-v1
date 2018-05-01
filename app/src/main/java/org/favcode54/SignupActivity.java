@@ -58,6 +58,11 @@ public class SignupActivity extends BaseActivity {
         submit = findViewById(R.id.signup);
 
         submit.setOnClickListener( v -> validateInputs());
+
+        findViewById(R.id.signin).setOnClickListener( v -> {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        });
     }
 
     private void validateInputs() {
